@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: retinasahayak-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=local
+      - DEBUG=True
+      - DATABASE_URL=sqlite:///./retinasahayak.db
+      - STORAGE_PROVIDER=LOCAL
+      - LOCAL_STORAGE_DIR=/app/backend/storage
+      - USE_MOCK_INFERENCE=True
+      - CORS_ORIGINS=["http://localhost:5173","http://127.0.0.1:5173","http://localhost:3000","http://127.0.0.1:3000"]
+    volumes:
+      - ./backend/storage:/app/backend/storage
+      - ./retinasahayak.db:/app/retinasahayak.db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

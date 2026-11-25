@@ -1,0 +1,76 @@
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment & Credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+service-account*.json
+
+# Databases, Backups & Dumps
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sql
+*.csv
+*.xlsx
+test_retinasahayak.db
+
+# Uploads, Media, Datasets & Generated Reports
+uploads/
+media/
+static/media/
+dataset/
+datasets/
+backend/storage/raw_images/*
+backend/storage/enhanced/*
+backend/storage/heatmaps/*
+backend/storage/overlays/*
+backend/storage/reports/*
+backend/storage/test_tmp/*
+backend/tests/generated_reports/*
+!backend/storage/**/.gitkeep
+
+# Model Weights
+models/
+*.h5
+*.pkl
+*.pt
+*.pth
+*.onnx
+
+# Node, Frontend & Build Artifacts
+node_modules/
+frontend/node_modules/
+dist/
+build/
+.next/
+frontend/dist/
+frontend/.vite/
+
+# Logs & Testing
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Operating System
+.DS_Store
+Thumbs.db
